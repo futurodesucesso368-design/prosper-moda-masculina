@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="PROSPER Moda Masculina. Vista sua evolução.">
+<title>PROSPER | Moda Masculina</title>
+<style>
+:root{--black:#111;--gold:#c9a96e;--cream:#f5f2ec;--gray:#777}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff;color:#171717}
+button,input{font:inherit}
+button{cursor:pointer}
+.topbar{background:#111;color:white;text-align:center;padding:9px;font-size:11px;letter-spacing:2px}
+header{background:#111;color:white;padding:22px 5%;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.logo{font-family:Georgia,serif;color:var(--gold);font-size:29px;letter-spacing:5px;font-weight:bold}
+.logo small{display:block;color:white;font:9px Arial;letter-spacing:4px;text-align:center;margin-top:5px}
+nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:13px}
+nav a:hover{color:var(--gold)}
+.cart{background:var(--gold);color:#111;border:0;padding:11px 15px;font-weight:bold}
+.hero{background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.12)),url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=85') center 35%/cover;min-height:440px;display:flex;align-items:center;padding:50px 8%;color:white}
+.hero-content{max-width:500px}
+.eyebrow{color:var(--gold);letter-spacing:3px;font-size:11px;font-weight:bold}
+h1{font-family:Georgia,serif;font-size:clamp(38px,7vw,68px);line-height:1.05;margin:18px 0}
+.hero p{line-height:1.8;color:#eee;max-width:380px}
+.btn{display:inline-block;background:var(--gold);color:#111;text-decoration:none;border:0;padding:15px 22px;font-size:12px;font-weight:bold;letter-spacing:1px;margin-top:12px}
+section{padding:55px 5%}
+.section-title{text-align:center;font-family:Georgia,serif;font-size:32px;margin:0 0 10px}
+.subtitle{text-align:center;color:var(--gray);font-size:13px;margin-bottom:30px}
+.search{display:block;width:100%;max-width:480px;margin:0 auto 20px;padding:13px;border:1px solid #ddd}
+.filters{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:30px}
+.filters button{padding:10px 16px;border:1px solid #ddd;background:white;font-size:12px}
+.filters button.active,.filters button:hover{background:#111;color:var(--gold);border-color:#111}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.product{min-width:0}
+.product img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#eee;display:block}
+.product h3{font-size:14px;margin:13px 0 6px}
+.product p{font-size:13px;color:#666;margin:0 0 10px}
+.price{font-size:16px;font-weight:bold}
+.product button{width:100%;padding:11px 5px;margin-top:10px;background:#111;color:white;border:0;font-size:11px}
+.product button:hover{background:var(--gold);color:#111}
+.tryon{background:var(--cream);text-align:center}
+.trybox{max-width:650px;margin:auto;border:1px solid #ddd;padding:32px 20px;background:white}
+.trybox h2{font-family:Georgia,serif;font-size:30px}
+.trybox p{color:#666;line-height:1.7;font-size:14px}
+.trybox button{padding:14px 20px;background:#111;color:white;border:0}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:center}
+.benefits h3{font-size:14px}
+.benefits p{font-size:12px;color:#777;line-height:1.6}
+footer{background:#111;color:white;text-align:center;padding:35px 20px}
+footer .logo{margin-bottom:18px}
+footer p{color:#aaa;font-size:12px;line-height:1.8}
+.notice{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#111;color:white;padding:14px 20px;display:none;z-index:10;max-width:90%;text-align:center;font-size:13px}
+@media(max-width:760px){.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}header{justify-content:center}nav{justify-content:center;gap:14px}.hero{min-height:400px;background-position:58% center}.benefits{grid-template-columns:1fr}.logo{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="topbar">ESTILO, PRESENÇA E EVOLUÇÃO</div>
+<header>
+<a href="#" style="text-decoration:none"><div class="logo">PROSPER<small>MODA MASCULINA</small></div></a>
+<nav>
+<a href="#inicio">Início</a>
+<a href="#colecao">Coleção</a>
+<a href="#provador">Provador IA</a>
+</nav>
+<button class="cart" onclick="showCart()">Sacola (<span id="cartCount">0</span>)</button>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+<div class="hero-content">
+<div class="eyebrow">SUA PRÓXIMA VERSÃO COMEÇA AQUI</div>
+<h1>Vista a sua evolução.</h1>
+<p>Moda masculina para quem tem atitude, busca crescimento e não abre mão de se vestir bem.</p>
+<a class="btn" href="#colecao">EXPLORAR COLEÇÃO</a>
+</div>
+</section>
+
+<section id="colecao">
+<h2 class="section-title">Coleção PROSPER</h2>
+<p class="subtitle">Encontre o estilo que representa você.</p>
+<input class="search" id="search" placeholder="Buscar uma peça..." oninput="renderProducts()">
+<div class="filters">
+<button class="active" onclick="setCategory('Todos',this)">Todos</button>
+<button onclick="setCategory('Camisetas',this)">Camisetas</button>
+<button onclick="setCategory('Camisas',this)">Camisas</button>
+<button onclick="setCategory('Calças',this)">Calças</button>
+<button onclick="setCategory('Jaquetas',this)">Jaquetas</button>
+</div>
+<div class="products" id="products"></div>
+</section>
+
+<section class="tryon" id="provador">
+<div class="trybox">
+<div class="eyebrow">TECNOLOGIA E ESTILO</div>
+<h2>Experimente antes de comprar.</h2>
+<p>Estamos preparando o provador virtual PROSPER. Em breve, você poderá enviar uma foto sua e visualizar uma simulação de como uma peça fica em você.</p>
+<button onclick="alert('O provador virtual com IA será integrado em uma próxima etapa do projeto.')">Conhecer o provador virtual</button>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Mais que vestir. Evoluir.</h2>
+<p class="subtitle">A experiência PROSPER começa em cada detalhe.</p>
+<div class="benefits">
+<div><h3>✦ Estilo e identidade</h3><p>Peças para expressar sua personalidade e seu momento.</p></div>
+<div><h3>✦ Escolha com facilidade</h3><p>Explore modelos e encontre seu próximo look.</p></div>
+<div><h3>✦ Tecnologia no vestir</h3><p>Uma nova experiência de compra está sendo construída.</p></div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="logo">PROSPER<small>MODA MASCULINA</small></div>
+<p>Vista a sua evolução.</p>
+<p>© <span id="year"></span> PROSPER. Todos os direitos reservados.</p>
+<p>Loja em desenvolvimento.</p>
+</footer>
+<div class="notice" id="notice"></div>
+
+<script>
+const products=[
+{name:'Camiseta Essential',category:'Camisetas',price:59.90,image:'photo-1521572163474-6864f9cf17ab'},
+{name:'Camisa Casual',category:'Camisas',price:99.90,image:'photo-1596755094514-f87e34085b2c'},
+{name:'Calça Masculina',category:'Calças',price:129.90,image:'photo-1624378439575-d8705ad7ae80'},
+{name:'Jaqueta Urbana',category:'Jaquetas',price:179.90,image:'photo-1551028719-00167b16eac5'},
+{name:'Camiseta Premium',category:'Camisetas',price:69.90,image:'photo-1503341504253-dff4815485f1'},
+{name:'Camisa Elegance',category:'Camisas',price:119.90,image:'photo-1603252109303-2751441dd157'},
+{name:'Look Contemporâneo',category:'Calças',price:139.90,image:'photo-1515886657613-9f3515b0c78f'},
+{name:'Jaqueta Classic',category:'Jaquetas',price:189.90,image:'photo-1520975958225-5bcd5e9b4b1c'}
+];
+let category='Todos';
+let cart=[];
+const money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function renderProducts(){
+const term=document.getElementById('search').value.toLowerCase();
+const list=products.filter(p=>(category==='Todos'||p.category===category)&&p.name.toLowerCase().includes(term));
+document.getElementById('products').innerHTML=list.map(p=>`<article class="product"><img loading="lazy" src="https://images.unsplash.com/${p.image}?auto=format&fit=crop&w=600&q=80" alt="${p.name}"><h3>${p.name}</h3><p>${p.category}</p><div class="price">${money(p.price)}</div><button onclick="addCart('${p.name}')">ADICIONAR À SACOLA</button></article>`).join('')||'<p>Nenhuma peça encontrada.</p>';
+}
+function setCategory(c,btn){category=c;document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderProducts()}
+function addCart(name){cart.push(name);document.getElementById('cartCount').textContent=cart.length;notice(name+' foi adicionada à sacola.')}
+function showCart(){if(!cart.length){notice('Sua sacola está vazia. Escolha uma peça para começar.');return}notice('Sua sacola: '+cart.join(', ')+'. Total de itens: '+cart.length+'.')}
+function notice(msg){const n=document.getElementById('notice');n.textContent=msg;n.style.display='block';clearTimeout(window.noticeTimer);window.noticeTimer=setTimeout(()=>n.style.display='none',3500)}
+document.getElementById('year').textContent=new Date().getFullYear();
+renderProducts();
+</script>
+</body>
+</html>
