@@ -122,30 +122,55 @@ footer p{color:#aaa;font-size:12px;line-height:1.8}
 <div class="notice" id="notice"></div>
 
 <script>
-const products=[
-{name:'Camiseta Essential',category:'Camisetas',price:59.90,image:'photo-1521572163474-6864f9cf17ab'},
-{name:'Camisa Casual',category:'Camisas',price:99.90,image:'photo-1596755094514-f87e34085b2c'},
-{name:'Calça Masculina',category:'Calças',price:129.90,image:'photo-1624378439575-d8705ad7ae80'},
-{name:'Jaqueta Urbana',category:'Jaquetas',price:179.90,image:'photo-1551028719-00167b16eac5'},
-{name:'Camiseta Premium',category:'Camisetas',price:69.90,image:'photo-1503341504253-dff4815485f1'},
-{name:'Camisa Elegance',category:'Camisas',price:119.90,image:'photo-1603252109303-2751441dd157'},
-{name:'Look Contemporâneo',category:'Calças',price:139.90,image:'photo-1515886657613-9f3515b0c78f'},
-{name:'Jaqueta Classic',category:'Jaquetas',price:189.90,image:'photo-1520975958225-5bcd5e9b4b1c'}
-];
-let category='Todos';
-let cart=[];
-const money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-function renderProducts(){
-const term=document.getElementById('search').value.toLowerCase();
-const list=products.filter(p=>(category==='Todos'||p.category===category)&&p.name.toLowerCase().includes(term));
-document.getElementById('products').innerHTML=list.map(p=>`<article class="product"><img loading="lazy" src="https://images.unsplash.com/${p.image}?auto=format&fit=crop&w=600&q=80" alt="${p.name}"><h3>${p.name}</h3><p>${p.category}</p><div class="price">${money(p.price)}</div><button onclick="addCart('${p.name}')">ADICIONAR À SACOLA</button></article>`).join('')||'<p>Nenhuma peça encontrada.</p>';
+
+const products = [];
+
+let category = 'Todos';
+let cart = [];
+
+function renderProducts() {
+  const container = document.getElementById('products');
+
+  if (products.length === 0) {
+    container.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:55px 15px;
+        background:#f5f2ec;
+      ">
+        <div style="font-size:32px;color:#c9a96e">✦</div>
+        <h3 style="font-family:Georgia,serif;font-size:25px">
+          Nossa coleção está chegando
+        </h3>
+        <p style="color:#777;line-height:1.7">
+          Estamos selecionando peças especiais
+          para a primeira coleção PROSPER.
+        </p>
+        <p style="font-size:11px;letter-spacing:2px">
+          EM BREVE • PROSPER MODA MASCULINA
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  const term = document.getElementById('search').value.toLowerCase();
+
+  const list = products.filter(p =>
+    (category === 'Todos' || p.category === category) &&
+    p.name.toLowerCase().includes(term)
+  );
+
+  container.innerHTML = list.map(p => `
+    <article class="product">
+      <img src="${p.image}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>Tamanhos: M, G e GG</p>
+      <div class="price">${money(p.price)}</div>
+      <button onclick="addCart('${p.name}')">
+        ADICIONAR À SACOLA
+      </button>
+    </article>
+  `).join('') || '<p>Nenhuma peça encontrada.</p>';
 }
-function setCategory(c,btn){category=c;document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderProducts()}
-function addCart(name){cart.push(name);document.getElementById('cartCount').textContent=cart.length;notice(name+' foi adicionada à sacola.')}
-function showCart(){if(!cart.length){notice('Sua sacola está vazia. Escolha uma peça para começar.');return}notice('Sua sacola: '+cart.join(', ')+'. Total de itens: '+cart.length+'.')}
-function notice(msg){const n=document.getElementById('notice');n.textContent=msg;n.style.display='block';clearTimeout(window.noticeTimer);window.noticeTimer=setTimeout(()=>n.style.display='none',3500)}
-document.getElementById('year').textContent=new Date().getFullYear();
-renderProducts();
-</script>
-</body>
-</html>
