@@ -74,21 +74,24 @@ footer p{color:#aaa;font-size:12px;line-height:1.8}
 <div class="hero-content">
 <div class="eyebrow">SUA PRÓXIMA VERSÃO COMEÇA AQUI</div>
 <h1>Vista a sua evolução.</h1>
-<p>Moda masculina para quem tem atitude, busca crescimento e não abre mão de se vestir bem.</p>
+<p>Moda feminina e masculina para quem tem atitude, personalidade e não abre mão de se vestir bem.</p>
 <a class="btn" href="#colecao">EXPLORAR COLEÇÃO</a>
 </div>
 </section>
 
 <section id="colecao">
-<h2 class="section-title">Coleção PROSPER</h2>
-<p class="subtitle">Encontre o estilo que representa você.</p>
+<h2 class="section-title">Coleção LUXPROSPER</h2>
+<p class="subtitle">Encontre seu estilo. Descubra sua identidade.</p>
 <input class="search" id="search" placeholder="Buscar uma peça..." oninput="renderProducts()">
-<div class="filters">
+<div <div class="filters">
 <button class="active" onclick="setCategory('Todos',this)">Todos</button>
+<button onclick="setCategory('Feminino',this)">Feminino</button>
+<button onclick="setCategory('Masculino',this)">Masculino</button>
 <button onclick="setCategory('Camisetas',this)">Camisetas</button>
 <button onclick="setCategory('Camisas',this)">Camisas</button>
 <button onclick="setCategory('Calças',this)">Calças</button>
 <button onclick="setCategory('Jaquetas',this)">Jaquetas</button>
+<button onclick="setCategory('Acessórios',this)">Acessórios</button>
 </div>
 <div class="products" id="products"></div>
 </section>
